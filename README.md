@@ -26,7 +26,11 @@
 5) Copy the server access token and paste it into witkey.env.cfg file located in lib. Make sure the pasted key is inside the empty quotation marks.
 6) Rename witkey.env.cfg to witkey.env
 
-Now that the repository is cloned and you have pasted in your key everything should be good to go assuming you imported the trained model. If not then steps to train it are down below.
+Now that the repository is cloned and you have pasted in your key everything should be good to go assuming you imported the trained model. 
+If you get an error code 500 returned from Wit then it is most likely to do with the project being setup, if the problem doesn't go away you will need to contact Wits support.
+You may need to do the short 6 step tutorial before the utterances trained get imported in.
+
+If you haven't imported the model then steps to train it are down below.
 
 ## Training the app.
 
