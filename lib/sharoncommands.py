@@ -1,4 +1,5 @@
 import textconverters
+from sharonvoice import sharonVoice as printv
 
 def lights_toggle(entities,traits):
   for i in range(len(entities)):
@@ -32,7 +33,7 @@ def lights_toggle(entities,traits):
   if comfortValue == "true":
       message = ". It's okay I'm with you."
 
-  print("Turning " + room + " " + device + " " + state + message)
+  printv("Turning " + str(room) + " " + str(device) + " " + str(state) + str(message))
 
 
 
@@ -72,7 +73,7 @@ def play_media(entities,traits):
   if "searchType" in locals():
     message += (" on " + searchType)
   message += "."
-  print("Playing" + message)
+  printv("Playing" + str(message))
 
 
 
@@ -92,9 +93,6 @@ def maths(entities,traits):
     numberList[i] = textconverters.texttointeger(numberList[i])
   for i in range(len(mathematicalOperatorsList)):
     mathematicalOperatorsList[i] = textconverters.texttooperator(mathematicalOperatorsList[i])
-
-  #print(numberList)
-  #print(mathematicalOperatorsList)
         
   result = 0
   multipleoperators = False
@@ -125,7 +123,7 @@ def maths(entities,traits):
         
     multipleoperators = True
 
-  print("The answer is", result)
+  printv("The answer is " + str(result))
 
     
 
