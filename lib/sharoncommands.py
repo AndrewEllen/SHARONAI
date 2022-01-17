@@ -1,3 +1,4 @@
+import textconverters
 
 def lights_toggle(entities,traits):
   for i in range(len(entities)):
@@ -85,9 +86,47 @@ def maths(entities,traits):
     elif entities[i].name == "sharon_mathematical":
       mathematicalOperator = entities[i].value
       mathematicalOperatorsList.append(mathematicalOperator)
-      
-  print(numberList)
-  print(mathematicalOperatorsList)
+
+
+  for i in range(len(numberList)):
+    numberList[i] = textconverters.texttointeger(numberList[i])
+  for i in range(len(mathematicalOperatorsList)):
+    mathematicalOperatorsList[i] = textconverters.texttooperator(mathematicalOperatorsList[i])
+
+  #print(numberList)
+  #print(mathematicalOperatorsList)
+        
+  result = 0
+  multipleoperators = False
+  for i in range(len(mathematicalOperatorsList)):
+    if mathematicalOperatorsList[i] == "+":
+      if multipleoperators == False:
+        result = numberList[i] + numberList[i+1]
+      else:
+        result += numberList[i+1]
+        
+    elif mathematicalOperatorsList[i] == "-":
+      if multipleoperators == False:
+        result = numberList[i] - numberList[i+1]
+      else:
+        result -= numberList[i+1]
+        
+    elif mathematicalOperatorsList[i] == "*":
+      if multipleoperators == False:
+        result = numberList[i] * numberList[i+1]
+      else:
+        result *= numberList[i+1]
+        
+    elif mathematicalOperatorsList[i] == "/":
+      if multipleoperators == False:
+        result = numberList[i] / numberList[i+1]
+      else:
+        result /= numberList[i+1]
+        
+    multipleoperators = True
+
+  print("The answer is", result)
+
     
 
 
